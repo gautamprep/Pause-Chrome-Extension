@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="popup.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="logo-circle">
+        <svg width="100%" height="100%" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="128" height="128" rx="32" fill="url(#paint0_linear)" />
+          <path d="M56 88V40H76C84.8366 40 92 47.1634 92 56C92 64.8366 84.8366 72 76 72H68V88H56Z" fill="white" />
+          <defs>
+            <linearGradient id="paint0_linear" x1="0" y1="0" x2="128" y2="128" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#007AFF" />
+              <stop offset="1" stop-color="#5856D6" />
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+      <h1>Pause</h1>
+    </div>
+
+
+    <div class="card">
+      <h2>Frequency</h2>
+      <div id="freq" class="segmented-control">
+        <!-- Buttons injected by JS -->
+      </div>
+    </div>
+
+    <button id="mute" class="action-btn">
+      <svg id="muteIcon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <path d="M11 5L6 9H2v6h4l5 4V5z"></path>
+        <line x1="23" y1="9" x2="17" y2="15"></line>
+        <line x1="17" y1="9" x2="23" y2="15"></line>
+      </svg>
+      <span id="muteText">Mute for Today</span>
+    </button>
+
+    <div class="card">
+      <h2>Monitored Sites</h2>
+      <div class="add-site-row">
+        <input type="text" id="newSiteInput" placeholder="Add website (e.g. twitter.com)">
+        <button id="addSiteBtn">Add</button>
+      </div>
+      <div id="sites" class="sites-list">
+        <!-- Site toggles injected by JS -->
+      </div>
+    </div>
+
+
+  </div>
+  <script src="popup.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Generate Pause Icon</title>
+</head>
+
+<body>
+    <h2>Right-click the icon below and save as "icon128.png"</h2>
+    <canvas id="icon" width="128" height="128"></canvas>
+
+    <script>
+        const canvas = document.getElementById('icon');
+        const ctx = canvas.getContext('2d');
+
+        // Create gradient background
+        const gradient = ctx.createLinearGradient(0, 0, 128, 128);
+        gradient.addColorStop(0, '#007AFF');
+        gradient.addColorStop(1, '#5856D6');
+
+        // Draw rounded rectangle background
+        const radius = 28;
+        ctx.beginPath();
+        ctx.moveTo(radius, 0);
+        ctx.lineTo(128 - radius, 0);
+        ctx.quadraticCurveTo(128, 0, 128, radius);
+        ctx.lineTo(128, 128 - radius);
+        ctx.quadraticCurveTo(128, 128, 128 - radius, 128);
+        ctx.lineTo(radius, 128);
+        ctx.quadraticCurveTo(0, 128, 0, 128 - radius);
+        ctx.lineTo(0, radius);
+        ctx.quadraticCurveTo(0, 0, radius, 0);
+        ctx.closePath();
+        ctx.fillStyle = gradient;
+        ctx.fill();
+
+        // Draw "P" letter using SVG path
+        ctx.fillStyle = 'white';
+        const p = new Path2D("M56 88V40H76C84.8366 40 92 47.1634 92 56C92 64.8366 84.8366 72 76 72H68V88H56Z");
+        ctx.fill(p);
+
+        // Convert to downloadable image
+        document.body.innerHTML += '<br><a id="download" download="icon128.png">Download icon128.png</a>';
+        canvas.toBlob(function (blob) {
+            const url = URL.createObjectURL(blob);
+            document.getElementById('download').href = url;
+        });
+    </script>
+</body>
+
+</html>
